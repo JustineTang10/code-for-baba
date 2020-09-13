@@ -1,0 +1,79 @@
+#turtle race code
+  import turtle
+  import random
+
+  turtle0 = turtle.Turtle()
+  turtle1 = turtle.Turtle()
+  turtle2 = turtle.Turtle()
+  position0 = 0
+  position1 = 0
+  position2 = 0
+
+  turtle0.shape('turtle')
+  turtle1.shape('turtle')
+  turtle2.shape('turtle')
+
+  color = ['red', 'blue', 'green']
+
+  turtle_list=[turtle0,turtle1,turtle2]
+  for i in range(3):
+    turtle_list[i].color(color[i])
+    turtle_list[i].penup()
+    turtle_list[i].goto(-160, 100*i)
+    turtle_list[i].pendown()
+
+  fillernumber = int(1000)
+
+  while fillernumber > 1:
+    turtlechoice = random.choice(turtle_list)
+    turtlechoice.forward(1)
+    if turtlechoice == turtle0:
+      position0 = position0 + 1
+    elif turtlechoice == turtle1:
+      position1 = position1 + 1
+    else:
+      position2 = position2 + 1
+  
+    if position0 == 300:
+      print("The winner is the red turtle!")
+      break
+    elif position1 == 300:
+      print("The winner is the blue turtle!")
+      break
+    elif position2 == 300:
+      print("The winner is the green turtle!")
+      break
+
+#age calculator for dogs/cats
+def agecalculator():
+  userinput = ''
+  while userinput != 'dog' and userinput != 'cat':
+    userinput = input("Is the animal a dog or cat? Please respond with either 'dog' or 'cat'.\n")
+    if userinput != 'dog' and userinput != 'cat':
+      print("Unknown response. Try again.\n")
+    
+  if userinput == 'dog':
+    animalage = int(input("How old is your dog?\n"))
+    if animalage == 1:
+      print("\nYour dog is 12 human years old.")
+    elif animalage == 2:
+      print("\nYour dog is 24 human years old.")
+    elif animalage > 2:
+      print("\nYour dog is ", 24 + (animalage - 2) * 4, "human years old.")
+    elif animalage == 0:
+      print("\nYour dog is 0 human years old.")
+    else:
+        print("\nInvalid number, sorry.")
+    
+  else:
+    animalage = int(input("How old is your cat?\n"))
+    if animalage == 1:
+      print("\nYour cat is 15 human years old.")
+    elif animalage == 2:
+      print("\nYour cat is 24 human years old.")
+    elif animalage > 2:
+      print("\nYour cat is ", 24 + (animalage - 2) * 4, "human years old.")
+    elif animalage == 0:
+      print("\nYour cat is 0 human years old.")
+    else:
+      print("\nInvalid number, sorry.")
