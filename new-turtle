@@ -1,0 +1,29 @@
+import turtle
+import random
+
+turtle0 = turtle.Turtle()
+turtle1 = turtle.Turtle()
+turtle2 = turtle.Turtle()
+
+turtle0.shape('turtle')
+turtle1.shape('turtle')
+turtle2.shape('turtle')
+
+color = ['red', 'blue', 'green']
+turtle_list=[turtle0,turtle1,turtle2]
+randomcolor = ''
+
+for i in range(3):
+  randomcolor = color.pop(random.randint(0, len(color)-1))
+  turtle_list[i].color(randomcolor)
+  turtle_list[i].penup()
+  turtle_list[i].goto(-160, 100*i)
+  turtle_list[i].pendown()
+
+while True:
+  chosenturtle = random.choice(turtle_list)
+  chosenturtle.forward(1)
+  
+  if chosenturtle.xcor() == 140:
+    print("The winner is the",chosenturtle.fillcolor(),"turtle!")
+    break
